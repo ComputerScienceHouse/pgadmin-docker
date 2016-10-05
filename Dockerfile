@@ -13,9 +13,10 @@ COPY config_local.py run.sh /usr/lib/python2.7/site-packages/pgadmin4-web/
 RUN chmod +x /usr/lib/python2.7/site-packages/pgadmin4-web/run.sh
 
 # Create the application user and drop privileges
-RUN useradd -r -d /var/lib/pgadmin -s /sbin/nologin -c "pgAdmin" pgadmin && \
-mkdir -p /var/lib/pgadmin && \
-chown -R pgadmin:pgadmin /var/lib/pgadmin
+RUN useradd -r -d /pgadmin-data -s /sbin/nologin -c "pgAdmin" pgadmin && \
+mkdir -p /pgadmin-data && \
+chown -R pgadmin:pgadmin /pgadmin-data && \
+chmod -R og+rwx /pgadmin-data
 USER pgadmin
 
 # Set the working directory to the pgadmin4-web root

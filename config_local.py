@@ -9,6 +9,13 @@ from logging import *
 APP_NAME = os.environ.get('PGADMIN_APP_NAME', 'pgAdmin 4')
 APP_ICON = os.environ.get('PGADMIN_APP_ICON', 'icon-postgres-alt')
 
+# Path to store persistant data, including the SQLite database
+DATA_DIR = "/pgadmin-data"
+STORAGE_DIR = os.path.join(DATA_DIR, 'storage')
+SESSION_DB_PATH = os.path.join(DATA_DIR, 'sessions')
+SQLITE_PATH = os.path.join(DATA_DIR, 'pgadmin4.db')
+LOG_FILE = os.path.join(DATA_DIR, 'pgadmin4.log')
+
 ##########################################################################
 # Server settings
 ##########################################################################
