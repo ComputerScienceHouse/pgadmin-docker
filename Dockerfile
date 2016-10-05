@@ -22,6 +22,9 @@ USER pgadmin
 # Set the working directory to the pgadmin4-web root
 WORKDIR /usr/lib/python2.7/site-packages/pgadmin4-web
 
+# Expose the default port
+EXPOSE 8080
+
 # Run the application
 CMD ./run.sh
 
